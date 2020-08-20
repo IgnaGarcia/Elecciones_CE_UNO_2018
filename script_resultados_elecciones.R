@@ -3,7 +3,7 @@ library(sqldf)
 
 
 ### leer los datos
-resultados2018 <- read.csv("C:/work/Explotacion/EleccionesUNO/resultados2018.csv", sep=";")
+resultados2018 <- read.csv("C:/work/Explotacion/EleccionesUNO/input_resultados2018.csv", sep=";")
 
 
 ### Completar con otros datos
@@ -26,7 +26,7 @@ resultados2018$porcent_NU[4] <- (totales$VotosNU * 100)/ totales$totalVotos
 
 
 ### grabar los datos en un archivo .csv
-write.csv2(resultados2018, "datos_2018.csv",  row.names = FALSE, fileEncoding = "UTF-8")
+write.csv2(resultados2018, "data_resultados_2018.csv",  row.names = FALSE, fileEncoding = "UTF-8")
 
 
 
