@@ -1,10 +1,12 @@
 # Agregar Datos a los resultados absolutos
-
 library(sqldf)
 
-##################################### leer los datos
+
+### leer los datos
 resultados2018 <- read.csv("C:/work/Explotacion/EleccionesUNO/resultados2018.csv", sep=";")
 
+
+### Completar con otros datos
 for(escuela in resultados2018$ID){
   resultados2018$totalVotos[escuela] <- resultados2018$VotosGEA[escuela] + resultados2018$VotosNU[escuela]
   resultados2018$porcent_GEA[escuela] <- (resultados2018$VotosGEA[escuela] * 100)/ resultados2018$totalVotos[escuela]
@@ -23,8 +25,8 @@ resultados2018$porcent_GEA[4] <- (totales$VotosGEA * 100)/ totales$totalVotos
 resultados2018$porcent_NU[4] <- (totales$VotosNU * 100)/ totales$totalVotos
 
 
-#   grabar los datos en un archivo .csv
-write.csv2(resultados2018, "datos_2018.csv",  row.names = TRUE, fileEncoding = "UTF-8")
+### grabar los datos en un archivo .csv
+write.csv2(resultados2018, "datos_2018.csv",  row.names = FALSE, fileEncoding = "UTF-8")
 
 
 
